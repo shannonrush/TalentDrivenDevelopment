@@ -7,3 +7,7 @@ gem 'capistrano'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
+
+group :test do
+  gem "rspec"
+end
