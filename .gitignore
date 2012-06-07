@@ -11,4 +11,5 @@
 /tmp
 
 /config/database.yml
-/config/deploy.rbenv
+/config/deploy.rb
+/config/environments/production.rb
