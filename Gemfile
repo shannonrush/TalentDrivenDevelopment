@@ -7,7 +7,6 @@ gem 'capistrano'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
-gem 'certified'
 
 group :test do
   gem "rspec"
