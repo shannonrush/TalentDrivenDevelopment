@@ -8,6 +8,12 @@ gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
 
+group :development do
+ gem 'thin'
+ gem 'quiet_assets'
+ gem 'debugger'
+end
+
 group :test do
   gem "rspec"
 end
