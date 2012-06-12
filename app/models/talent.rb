@@ -1,2 +1,3 @@
 class Talent < User
+
 end
