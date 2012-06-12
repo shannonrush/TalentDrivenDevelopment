@@ -4,6 +4,6 @@ class ConfirmationsController < Devise::ConfirmationsController
 
    # The path used after confirmation. 
   def after_confirmation_path_for(resource_name, resource) 
-    user_path(resource) 
+    user_edit_path(resource) 
   end 
 end
