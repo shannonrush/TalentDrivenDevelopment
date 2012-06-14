@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
-    @type = params[:type] 
+    @type = params[:user][:type] 
     super
   end
 
@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
   
   def resource_class
-    @type = !params[:user].nil? ? params[:user].delete(:type) : params.delete(:type)
+    @type = params[:user].delete(:type)
     if @type == 'Agent'
       Agent
     elsif @type == 'Talent'
