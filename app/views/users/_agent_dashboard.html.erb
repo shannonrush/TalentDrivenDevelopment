@@ -14,5 +14,6 @@ Agent dashboard
 	<%= f.text_area :statement%></div>
 	<div><%= f.label :avatar %><br/>
 	<%= f.file_field :avatar %></div>
+	<div><%= image_tag @user.avatar.url %></div>
 	<div><%= f.submit "Submit" %></div>
 <% end %>

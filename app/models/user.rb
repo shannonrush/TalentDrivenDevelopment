@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   
   # paperclip
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/assets/missing_avatar.png'
   
   # devise
   # Include default devise modules. Others available are:
