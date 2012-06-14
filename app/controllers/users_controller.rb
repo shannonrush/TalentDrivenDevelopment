@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+  before_filter :authorized_to_edit, :only => [:edit, :update]
 
   def edit
     @user = User.find(params[:id])
@@ -18,6 +20,14 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+  end
+  
+  protected
+  
+  def authorized_to_edit
+    authenticate_user! # if there is no current_user redirect to sign in
+    user = User.find_by_id(params[:id])
+    redirect_to(edit_user_path(current_user)) unless user && current_user == user
   end
 
 end
