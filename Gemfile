@@ -7,6 +7,7 @@ gem 'capistrano'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
+gem "paperclip", "~> 3.0"
 
 group :development do
  gem 'thin'
