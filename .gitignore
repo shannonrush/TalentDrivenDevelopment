@@ -13,3 +13,5 @@
 /config/database.yml
 /config/deploy.rb
 /config/environments/production.rb
+
+/public/system/*

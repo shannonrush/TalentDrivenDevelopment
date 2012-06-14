@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
   
   def resource_class
-    @type = params[:user].delete(:type)
+    @type = !params[:user].nil? ? params[:user].delete(:type) : params.delete(:type)
     if @type == 'Agent'
       Agent
     elsif @type == 'Talent'
