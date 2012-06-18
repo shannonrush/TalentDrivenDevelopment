@@ -12,7 +12,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-	<%= f.hidden_field :type, :value => @type %>
+	<%= hidden_field_tag :type, @type %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
