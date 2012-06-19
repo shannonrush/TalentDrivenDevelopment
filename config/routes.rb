@@ -1,4 +1,7 @@
 TalentDrivenDevelopment::Application.routes.draw do
+  devise_scope :user do 
+    get "users/sign_up/:type" => "registrations#new", :as => :new_user_registration
+  end
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"}
 
   # The priority is based upon order of creation:

@@ -14,7 +14,7 @@ TalentDrivenDevelopment::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :sendmail #:smtp
@@ -37,7 +37,5 @@ TalentDrivenDevelopment::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  # Paperclip
-  Paperclip.options[:command_path] = "/opt/local/bin/identify"
+
 end
