@@ -1,6 +1,7 @@
 TalentDrivenDevelopment::Application.routes.draw do
   devise_scope :user do 
-    get "users/sign_up/:type" => "registrations#new", :as => :new_user_registration
+    get "users/sign_up/:type" => "registrations#new", :as => :new_user_registration, :type => /agent|talent/
+    get "users/sign_up/:type" => "welcome#index", :as => :new_user_registration
   end
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"}
 

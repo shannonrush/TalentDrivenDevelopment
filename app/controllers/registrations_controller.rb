@@ -12,14 +12,11 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
   
+  
   protected
   
   def resource_class
-    if ['agent','talent'].include?(params[:type])
-      @type = params.delete(:type)
-      @type.capitalize.constantize
-    else
-      super
-    end
+    @type = params.delete(:type)
+    @type.capitalize.constantize
   end
 end
