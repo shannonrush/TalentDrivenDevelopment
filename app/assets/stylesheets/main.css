@@ -1,4 +1,7 @@
-body {
-  background-image:url('main_bg.png');
-  background-repeat:no-repeat;
+#banner {
+ float:right;
+ margin-right:200px;
+}
+#yield {
+  
 }
