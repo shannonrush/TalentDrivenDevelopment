@@ -1,8 +1,12 @@
 TalentDrivenDevelopment::Application.routes.draw do
+  
+  # Only allow agent and talent types for new registration, otherwise route to welcome#index
   devise_scope :user do 
     get "users/sign_up/:type" => "registrations#new", :as => :new_user_registration, :type => /agent|talent/
     get "users/sign_up/:type" => "welcome#index", :as => :new_user_registration
   end
+  
+  # Devise routes and custom devise controllers
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"}
 
   # The priority is based upon order of creation:
@@ -18,6 +22,8 @@ TalentDrivenDevelopment::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
+  # User resources including resources for user types
   resources :users
   resources :agents, :controller => 'users'
   resources :talents, :controller => 'users'

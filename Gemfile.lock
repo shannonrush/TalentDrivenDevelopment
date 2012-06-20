@@ -57,6 +57,12 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    haml (3.1.6)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     highline (1.6.12)
     hike (1.2.1)
     i18n (0.6.0)
@@ -152,6 +158,7 @@ DEPENDENCIES
   capistrano
   debugger
   devise
+  haml-rails
   jquery-rails
   mysql2
   paperclip (~> 3.0)
