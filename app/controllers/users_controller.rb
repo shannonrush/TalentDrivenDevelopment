@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
   
   before_filter :check_authorization, :only => [:edit, :update]
-
-  def edit
-    @user = User.find(params[:id])
-  end
   
-  def update
-    @user = User.find(params[:id])
-    
+  def update    
     respond_to do |format|
       if @user.update_attributes(params[@user.type.downcase])
         format.html {redirect_to(@user, :notice => "Profile successfully updated")}
@@ -26,8 +20,8 @@ class UsersController < ApplicationController
   
   def check_authorization
     authenticate_user! # if there is no current_user redirect to sign in
-    user = User.find_by_id(params[:id])
-    redirect_to(edit_user_path(current_user)) unless user && current_user == user #redirect to current_user if not user
+    @user = User.find_by_id(params[:id])
+    redirect_to(edit_user_path(current_user)) unless @user && current_user == @user #redirect to current_user if not user
   end
 
 end
