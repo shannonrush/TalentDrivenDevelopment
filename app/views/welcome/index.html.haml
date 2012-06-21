@@ -1,3 +1,11 @@
-= link_to "Sign Up As Agent", new_user_registration_path("agent") 
-= link_to "Sign Up As Talent", new_user_registration_path("talent") 
-= link_to "Sign Out", destroy_user_session_path, :method => :delete 
+/ = link_to "Sign Up As Agent", new_user_registration_path("agent") 
+/ = link_to "Sign Up As Talent", new_user_registration_path("talent") 
+%div#intro
+  %p.lead_in "In today's market developers are a hot commodity!" --everyone, all the time
+  %p But what developer wants to be treated like one?  Developers are constantly being contacted by recruiters with offers of opportunities that have nothing to do with their skill sets or themselves as talented individuals.
+  %p There are great opportunities out there, and great recruiters, too.  Unfortunately those recruiters are representing the employers, not the talent.  They are looking for developers to fit a position, not a position to fit a developer.
+  %p That's why the industry needs to flip this model and adopt Talent Driven Development!
+  %p.question Who Are You?
+  %p.buttons 
+    =link_to image_tag("talent_button.png"),new_user_registration_path("talent") 
+    =link_to image_tag("agent_button.png"),new_user_registration_path("agent") 

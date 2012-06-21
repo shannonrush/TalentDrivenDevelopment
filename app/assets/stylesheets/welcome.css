@@ -1,4 +1,18 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+#intro {
+  width:80%;
+}
+#intro p.lead_in {
+  text-align:center;
+}
+
+#intro p.question {
+  text-align:center;
+}
+
+#intro p.buttons {
+  text-align:center;
+}
+
+#intro p {
+  margin-bottom:20px;
+}

@@ -1,12 +1,26 @@
+$blue:#009abc;
+
 body {
   background-image:url("bg_repeat.png");
   background-repeat:repeat-y;
+  font-family: "Courier New","Helvetica", "Arial", sans-serif;
 }
-
+a {
+  font-family: "Menlo";
+  text-decoration:none;
+  color:$blue;
+}
+#header_links {
+  text-align:right;
+  margin-right:10%;
+}
 #banner {
- float:right;
- margin-right:10%;
+  text-align:right;
+  margin-right:10%;
 }
 #yield {
-  
+  position:relative;
+  left:200px;
+  top:20px;
+  width:80%;
 }
