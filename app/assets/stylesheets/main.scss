@@ -10,6 +10,14 @@ a {
   text-decoration:none;
   color:$blue;
 }
+p {
+  margin-bottom:20px;
+}
+label {
+  color:darken($blue,20%);
+}
+
+
 #header_links {
   text-align:right;
   margin-right:10%;
