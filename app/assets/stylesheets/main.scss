@@ -1,20 +1,33 @@
 $blue:#009abc;
+$font_family:"Courier New","Helvetica", "Arial", sans-serif;
 
 body {
   background-image:url("bg_repeat.png");
   background-repeat:repeat-y;
-  font-family: "Courier New","Helvetica", "Arial", sans-serif;
+  font-family:$font_family;
 }
 a {
-  font-family: "Menlo";
+  font-family:$font_family;
   text-decoration:none;
   color:$blue;
+  font-weight:bold;
 }
 p {
   margin-bottom:20px;
 }
 label {
   color:darken($blue,20%);
+  font-size:1.1em;
+}
+
+input[type=email], input[type=password], input[type=text] {
+  background-color:$blue;
+  height:25px;
+  color:white;
+  font-family:$font_family;
+  padding:3px;
+  font-size:1.1em;
+  font-weight:bold;
 }
 
 
