@@ -19,8 +19,10 @@ group :development do
  gem 'thin'
  gem 'quiet_assets'
  gem 'debugger'
+ gem "rspec-rails"
 end
 
 group :test do
-  gem "rspec"
+  gem "rspec-rails"
+  gem "factory_girl"
 end

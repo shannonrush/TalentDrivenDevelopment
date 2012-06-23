@@ -1,0 +1,7 @@
+=link_to "Edit Profile", edit_agent_path(@user)
+|
+=link_to "View Profile", agent_path(@user)
+- if @user.has_badges?
+  =render 'badges'
+=render 'talent_list'
+=render 'dashboard/messages'
