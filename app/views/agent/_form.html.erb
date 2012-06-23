@@ -1,7 +1,3 @@
-Agent dashboard
-
-<%= link_to "View Profile", user_path(@user) %>
-
 <%= form_for(@user) do |f| %>
 	<%= render :partial => 'shared/errors', :locals => {:object => @user} %>
 	<div><%= f.label :email %><br />

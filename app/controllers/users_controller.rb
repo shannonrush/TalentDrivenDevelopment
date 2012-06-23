@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def update    
     respond_to do |format|
       if @user.update_attributes(params[@user.type.downcase])
-        format.html {redirect_to(@user, :notice => "Profile successfully updated")}
+        format.html {redirect_to(user_dashboard_index_path(@user), :notice => "Profile successfully updated")}
       else
         format.html {render :action => "edit"}
       end

@@ -30,7 +30,14 @@ input[type=email], input[type=password], input[type=text] {
   font-weight:bold;
 }
 
-
+#flash {
+  width:40%;
+  position:absolute;
+  left:150px;
+  top:40px;
+  color:$blue;
+  font-weight:bold;
+}
 #header_links {
   text-align:right;
   margin-right:10%;
