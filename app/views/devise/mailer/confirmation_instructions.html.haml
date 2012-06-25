@@ -1,0 +1,12 @@
+%p
+  Welcome to Talent Driven Development!
+=render "confirmation_#{@resource.class.name.downcase}"
+%p
+  If you have any questions, comments or suggestions don't hesitate to email us at 
+  =mail_to 'support@talentdrivendevelopment.com'
+%p
+  = link_to 'Confirm My Account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) 
+%p
+  Thanks!
+%p
+  The TDD Team

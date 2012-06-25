@@ -1,3 +1,4 @@
 class AgentBadge < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :agent
+  belongs_to :badge
 end

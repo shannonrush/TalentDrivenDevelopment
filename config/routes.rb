@@ -25,12 +25,12 @@ TalentDrivenDevelopment::Application.routes.draw do
   
   # User resources including resources for user types
   resources :users 
-  resources :agents, :controller => 'users' do
-    resource :dashboard, :only => :show
-  end
-  resources :talents, :controller => 'users' do
-    resource :dashboard, :only => :show
-  end
+  resources :agents, :controller => 'users'
+  get 'agents/:user_id/dashboard' => 'dashboards#show', :as => :agent_dashboard
+
+  resources :talents, :controller => 'users'
+  get 'talents/:user_id/dashboard' => 'dashboards#show', :as => :talent_dashboard
+  
 
   # Sample resource route with options:
   #   resources :products do

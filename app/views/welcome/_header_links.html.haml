@@ -1,4 +1,6 @@
 -if user_signed_in?
+  = link_to "My Dashboard", dashboard_path_for_user
+  |
   = link_to "Sign Out", destroy_user_session_path, :method => :delete
 -else
   = link_to "Sign In", new_user_session_path
