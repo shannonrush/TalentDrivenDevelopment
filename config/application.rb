@@ -59,7 +59,7 @@ module TalentDrivenDevelopment
     # Generators 
     config.generators do |g|
       g.template_engine :haml
-      g.test_framework :rspec, fixture: false
+      g.test_framework :rspec, :fixture=>false
     end
   end
 end

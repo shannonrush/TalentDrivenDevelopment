@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
-    @type = params[:type] 
+    @type = params[:type]
     super
   end
 
