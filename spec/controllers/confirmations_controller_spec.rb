@@ -20,4 +20,8 @@ describe ConfirmationsController do
     get :show,{confirmation_token:unconfirmed_talent.confirmation_token}
     response.should redirect_to(edit_talent_path(unconfirmed_talent))
   end
+  it 'should render new if user cannot be found by token' do
+    get :show,{confirmation_token:"blah"}
+    response.should render_template(:new)
+  end
 end

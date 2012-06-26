@@ -1,0 +1,12 @@
+%p 
+  Sorry, something has gone wrong and we can't confirm you.  The good news is we can try again!  Give us your email and we'll give it another go.
+
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  %p
+    = f.label :email 
+    %br
+    = f.email_field :email
+  %p
+    = f.submit "Resend confirmation instructions" 
+
+
