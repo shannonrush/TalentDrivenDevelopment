@@ -1,0 +1,40 @@
+= form_for(@user) do |f|
+  = render :partial => 'shared/errors', :locals => {:object => @user} 
+  %div.form
+    =f.label :avatar
+    %p
+      Show yourself off!
+    = image_tag @user.avatar.url 
+    =f.file_field :avatar
+  %div
+    =f.label :first_name
+    %br
+    =f.text_field :first_name
+  %div
+    =f.label :last_name
+    %br
+    =f.text_field :last_name
+  %div
+    =f.label :email
+    %br
+    =f.email_field :email
+  %div
+    =f.label :background
+    %p
+      Tell about your previous experience and your areas of expertise.
+    =f.text_area :background
+  %div
+    =f.label :agent_statement
+    %p 
+      What are you looking for?  Include as much detail as possible: remote position or a specific location? Open to relocating? Full time or contract? What technologies? You'll have plenty of opportunity to discuss the details with your agent but this is a good place to start.
+    =f.text_area :statement
+  %div
+    =f.label :privacy
+    %p
+      If you would like your profile to be viewable by agents and you would like to be contacted by agents who would like to represent you, check the "Make my profile public" box below. 
+    %p
+      If you would rather not be contacted and would like to only speak with agents whom you contact directly, uncheck the "Make my profile public" box.
+    =f.check_box :public, checked:true
+    Make my profile public
+  =image_submit_tag("save_button.png")
+

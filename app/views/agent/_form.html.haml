@@ -1,0 +1,31 @@
+= form_for(@user) do |f|
+  = render :partial => 'shared/errors', :locals => {:object => @user} 
+  %div.form
+    =f.label :avatar
+    %p
+      Show yourself off!
+    = image_tag @user.avatar.url 
+    =f.file_field :avatar
+  %div
+    =f.label :first_name
+    %br
+    =f.text_field :first_name
+  %div
+    =f.label :last_name
+    %br
+    =f.text_field :last_name
+  %div
+    =f.label :email
+    %br
+    =f.email_field :email
+  %div
+    =f.label :background
+    %p
+      This is where you tell about your prior experience. It is important to include details about your technical expertise.
+    =f.text_area :background
+  %div
+    =f.label :agent_statement
+    %p 
+      Let the talent know why YOU would be an excellent choice for their agent.
+    =f.text_area :statement
+  =image_submit_tag("save_button.png")

@@ -19,7 +19,6 @@ label {
   color:darken($blue,20%);
   font-size:1.1em;
 }
-
 input[type=email], input[type=password], input[type=text] {
   background-color:$blue;
   height:25px;
@@ -28,6 +27,19 @@ input[type=email], input[type=password], input[type=text] {
   padding:3px;
   font-size:1.1em;
   font-weight:bold;
+}
+textarea {
+  width:80%;
+  background-color:$blue;
+  color:white;
+  font-family:$font_family;
+  padding:5px;
+  font-size:1.1em;
+  font-weight:bold;
+  height:150px;
+}
+form div {
+  margin-bottom:20px;
 }
 
 #flash {

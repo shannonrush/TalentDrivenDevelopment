@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623211930) do
+ActiveRecord::Schema.define(:version => 20120626213834) do
 
   create_table "agent_badges", :id => false, :force => true do |t|
     t.integer  "agent_id"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20120623211930) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "type"
-    t.string   "name"
     t.text     "background"
     t.text     "statement"
     t.integer  "agent_id"
@@ -52,6 +51,9 @@ ActiveRecord::Schema.define(:version => 20120623211930) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "public"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
