@@ -6,6 +6,9 @@ body {
   background-repeat:repeat-y;
   font-family:$font_family;
 }
+.clear {
+  clear:both;
+} 
 a {
   font-family:$font_family;
   text-decoration:none;

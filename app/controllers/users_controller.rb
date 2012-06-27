@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   
   before_filter :check_authorization, :only => [:edit, :update]
   
+  def index
+    @users = other_user_type.all
+  end
+
   def update    
     respond_to do |format|
       if @user.update_attributes(params[@user.type.downcase])

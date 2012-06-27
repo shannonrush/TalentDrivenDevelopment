@@ -11,3 +11,17 @@ div.profile {
     font-weight:bold;
   }
 }
+
+div.list {
+  img {
+    border:2px solid $blue;
+  }
+  div.left {
+    width:125px;
+    float:left;
+  }
+  div.right {
+    width:80%;
+    margin-left:20px;
+  }  
+}

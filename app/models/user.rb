@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   # paperclip
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/assets/missing_avatar.png'
-  
+    
   # devise
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :background, :statement, :avatar, :public
-  
+
 end
