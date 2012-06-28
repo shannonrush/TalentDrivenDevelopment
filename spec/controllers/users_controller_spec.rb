@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:agent) {FactoryGirl.create(:agent)}
   let(:other_agent) {FactoryGirl.create(:agent, email: "shannonmrush@gmail.com")}
-  let(:talent) {FactoryGirl.create(:talent)}
   describe '#check_authorization' do
     it 'should redirect to sign in if no current user' do
       get :edit

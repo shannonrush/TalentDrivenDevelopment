@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe ApplicationController do
-  let(:agent) {FactoryGirl.create(:agent)}
-  let(:talent) {FactoryGirl.create(:talent)}  
   describe '#other_user_type' do
     it 'should return Agent if current user is Talent' do
       sign_in(talent)
