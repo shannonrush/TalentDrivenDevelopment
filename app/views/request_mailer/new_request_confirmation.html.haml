@@ -1,0 +1,10 @@
+%p
+  ="Dear #{@request.talent.first_name},"
+%p
+  ="This is a confirmation of your request to #{@request.agent.first_name} #{@request.agent.last_name} for talent representation.  We'll let you know as soon as we hear back from #{@request.agent.first_name}."
+%p
+  =link_to "#{@request.agent.first_name} #{@request.agent.last_name}'s Profile",agent_url(@request.agent) 
+%p
+  Thanks!
+%p
+  The TDD Team

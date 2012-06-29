@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626213834) do
+ActiveRecord::Schema.define(:version => 20120628190139) do
 
   create_table "agent_badges", :id => false, :force => true do |t|
     t.integer  "agent_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20120626213834) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "requests", :force => true do |t|
+    t.integer  "talent_id"
+    t.integer  "agent_id"
+    t.text     "message"
+    t.boolean  "accepted"
+    t.boolean  "pending"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

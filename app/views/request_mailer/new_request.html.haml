@@ -1,0 +1,18 @@
+%p
+  ="Dear #{@request.agent.first_name},"
+%p
+  Good news!
+  ="#{@request.talent.first_name} #{@request.talent.last_name} would like YOU to be their talent agent!"
+-if @request.message?
+  %p
+    ="Here's a message from #{@request.talent.first_name}:"
+  %p
+    =@request.message
+%p
+  =link_to "Take a look at #{@request.talent.first_name}'s profile", talent_url(@request.talent)
+%p 
+  =link_to "Accept or decline this request",edit_request_path(@request)
+%p
+  Thanks and congratulations!
+%p
+  The TDD Team

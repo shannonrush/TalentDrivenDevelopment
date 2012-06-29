@@ -5,6 +5,9 @@
 %p
   =mail_to @user.email
 %p
+  -if current_user.kind_of? Talent
+    =link_to "Request Representation", new_agent_request_path(@user)
+%p
   %h3
     ="#{@user.first_name}'s Background"
   =@user.background
