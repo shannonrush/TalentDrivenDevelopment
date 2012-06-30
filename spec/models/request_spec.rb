@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Request do
+  #let(:request){FactoryGirl.create(:request)}
   describe '#send_new_request_emails' do
     before(:each) do
       ActionMailer::Base.deliveries = []
@@ -10,20 +11,22 @@ describe Request do
       mails = ActionMailer::Base.deliveries
       mails.count.should == 2
     end
-    pending 'should send a new request email to requested Agent' do
-      Request.create(agent_id:agent.id,talent_id:talent.id)
+    it 'should send a new request email to requested Agent' do
+      request = FactoryGirl.create(:request)
       mails = ActionMailer::Base.deliveries
-      mails.find(subject:"#{talent.first_name} Requests Representation").count.should == 1
+      subjects = mails.collect {|m| m['subject'].to_s}
+      subjects.should include "#{request.talent.first_name} Requests Representation"
     end 
-    pending 'should send a new request email to requesting Talent' do
-      Request.create(agent_id:agent.id,talent_id:talent.id)
+    it 'should send a new request email to requesting Talent' do
+      FactoryGirl.create(:request)
       mails = ActionMailer::Base.deliveries
-      mails.find(subject:"Confirmation of Request").count.should == 1 
+      subjects = mails.collect {|m| m['subject'].to_s}
+      subjects.should include "Confirmation of Request"  
     end
   end
   describe '#make_pending' do
     it 'should set pending true on created request' do 
-      request = Request.create(agent_id:agent.id,talent_id:talent.id)
+      request = FactoryGirl.create(:request)
       request.pending.should be_true
     end
   end
