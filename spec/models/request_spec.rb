@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Request do
-  #let(:request){FactoryGirl.create(:request)}
   describe '#send_new_request_emails' do
     before(:each) do
       ActionMailer::Base.deliveries = []
