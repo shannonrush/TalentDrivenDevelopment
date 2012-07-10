@@ -1,0 +1,19 @@
+%p
+  =link_to @request.talent.full_name, talent_path(@request.talent)
+  has requested YOU as their dedicated talent agent!
+  -if @request.message
+    %p 
+      =@request.message
+    %p
+      From, #{@request.talent.first_name}
+
+=form_for(@request) do |f|
+  =render :partial => 'shared/errors', :locals => {:object => @request}
+  %p
+    =f.radio_button :accepted, true
+    =f.label :accepted_true, "Yes, I accept and will be a great agent for #{@request.talent.first_name}!"
+  %p
+    =f.radio_button :accepted, false      
+    =f.label :accepted_false, "No, I do not wish to represent #{@request.talent.full_name} at this time"
+  %p
+    =image_submit_tag("submit_button.png")

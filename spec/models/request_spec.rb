@@ -29,4 +29,23 @@ describe Request do
       request.pending.should be_true
     end
   end
+  describe '#update_associations' do
+    it 'should set requesting talent as belonging to requested agent upon acceptance' do
+      request = FactoryGirl.create(:request_no_emails)
+      request.update_attributes(accepted:true)
+      request.agent.talents.count.should equal 1
+    end
+    it 'should not set requesting talent as belonging to requested agent upon rejection' do
+      request = FactoryGirl.create(:request_no_emails)
+      request.update_attributes(accepted:false)
+      request.agent.talents.count.should equal 0 
+    end
+  end
+  describe '#send_update_request_emails' do
+    it 'should send an email to requested agent'
+    it 'should send an email to requesting talent'
+  end
+  describe '#remove_pending' do
+    it 'should set pending flag to false' 
+  end
 end

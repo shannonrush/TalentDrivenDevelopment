@@ -44,7 +44,9 @@ textarea {
 form div {
   margin-bottom:20px;
 }
-
+div.errors {
+  color:red;
+}  
 #flash {
   width:40%;
   position:absolute;
