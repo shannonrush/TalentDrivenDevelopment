@@ -7,6 +7,7 @@ class Request < ActiveRecord::Base
   attr_accessible :accepted, :agent_id, :message, :pending, :talent_id
 
   validates_inclusion_of :accepted, :on => :update, :in => [true,false]
+  validates_uniqueness_of :agent_id, :scope => :talent_id, :message => "has already been requested"
 
   def send_new_request_emails
     RequestMailer.new_request(self).deliver    

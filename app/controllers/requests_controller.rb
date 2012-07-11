@@ -3,8 +3,8 @@ class RequestsController < ApplicationController
   before_filter :check_authorization, :only => [:edit,:update]
 
   def new
-    @agent = Agent.find(params[:agent_id])
     @request = Request.new
+    @request.agent = Agent.find(params[:agent_id])
   end
 
   def create

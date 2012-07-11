@@ -1,11 +1,12 @@
 %h2
-  ="Request Representation From #{@agent.first_name} #{@agent.last_name}"
+  ="Request Representation From #{@request.agent.first_name} #{@request.agent.last_name}"
 %p
   Wonderful! You've chosen an agent! Send an introductory note along with your request if you like, and we'll let you know as soon as we hear back.
 =form_for(@request) do |f|
+  =render :partial => 'shared/errors', :locals => {:object => @request}
   %p
     =f.text_area :message
-  =f.hidden_field :agent_id,:value=>@agent.id
+  =f.hidden_field :agent_id,:value=>@request.agent.id
   =f.hidden_field :talent_id,:value=>current_user.id
   =image_submit_tag("send_button.png")
 
