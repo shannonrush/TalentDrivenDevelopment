@@ -18,4 +18,22 @@ class RequestMailer < ActionMailer::Base
       :subject => "Confirmation of Request"
     )
   end
+  
+  def request_reply(request)
+    # sent to requesting talent upon requests#update
+    @request = request
+    mail(
+      :to => request.talent.email,
+      :subject => "Your Request For Representation"
+    )
+  end
+
+  def request_reply_confirmation(request)
+    #sent to requested agent upon requests#update
+    @request = request
+    mail(
+      :to => request.agent.email,
+      :subject => "Your Reply Has Been Received"
+    )
+  end
 end

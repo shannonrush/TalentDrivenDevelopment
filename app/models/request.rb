@@ -22,12 +22,13 @@ class Request < ActiveRecord::Base
   end
 
   def send_update_request_emails
+    RequestMailer.request_reply(self).deliver
+    RequestMailer.request_reply_confirmation(self).deliver
   end
 
   def remove_pending
     self.update_column(:pending,false)
   end
-
 
 end
 

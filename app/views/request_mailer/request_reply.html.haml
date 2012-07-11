@@ -1,0 +1,11 @@
+%p
+  ="Hello #{@request.talent.first_name},"
+  =render reply(@request)
+%p
+  If you have any questions please feel free to contact 
+  =mail_to "support@talentdrivendevelopment.com"
+%p
+  Sincerely,
+  %br
+  The TDD Team
+  

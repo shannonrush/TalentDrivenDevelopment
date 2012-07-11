@@ -1,0 +1,23 @@
+%p
+  ="Good news! #{@request.agent.full_name} is now your talent agent!"
+%p
+  Each agent may only represent a limited number of talented people like yourself so you can be sure to receive the attention you deserve.  
+%p
+  It's important to be very clear about what you're looking for when discussing your next move with your agent. This way you'll get the interviews and offers that interest you!
+%p
+  ="#{@request.agent.first_name} has agreed to work hard to find you opportunities that are a great fit, to promote you, and to negotiate on your behalf. In return you agree to share 10% of your earnings. (#protip: Just raise your minimum acceptable offer 10% and your bottom line stays the same!)"
+%p
+  The next steps: 
+  %ul
+    %li
+      =link_to "Contact your new agent!", agent_url(@request.agent)
+      %li
+        Say hello and start sharing details about what you want in your next opportunity
+    %li
+      Your agent will find you interviews and you will decide if they are acceptable - if they fit the opportunities you have requested
+    %li
+      You set a minimum acceptable offer.  This means this is the minimum amount that will be presented to you.  This does not mean you must accept, it really just protects you from having your time wasted.  You can still negotiate for more or reject the offer altogether.  Your agent will negotiate for you if all parties agree.
+    %li
+      If you are not getting acceptable interviews or are otherwise unhappy with your agent you may discontinue the relationship at any time and request a new agent.  
+%p
+  We are so happy you've found a match and wish you all the best of luck with your next career step!

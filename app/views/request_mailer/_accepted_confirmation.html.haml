@@ -1,0 +1,21 @@
+%p
+  Congratulations!
+%p
+  ="We let #{@request.talent.full_name} know you've accepted and are now their talent agent!"
+%p
+  What's next?
+  %ul
+    %li
+      =link_to "Contact #{@request.talent.first_name}!", talent_url(@request.talent)
+      %li
+        ="Say hello and get to know what #{@request.talent.first_name} is looking for"
+    %li
+      Hustle! Find interviews and opportunities that are a great fit! Be sure to listen carefully to the requirements detailed to you. Opportunities that are not a good fit will be marked as unacceptable. 
+    %li
+      ="#{@request.talent.first_name} has carefully selected YOU to represent their best interests, promote them and negotiate on their behalf. They have agreed to share 10% of their earnings (8% for you, 2% for TDD). In return you must agree to work hard to find them great opportunities!"
+    %li
+      As your agent score increases the number of talented individuals you are able to represent will also increase.  This score is influenced by the number of acceptable interviews you secure, the number of offers you make, the specialty badges you receive, amongst other elements. A high agent score will show talent that you are someone who gets it done.
+    %li
+      If at anytime you feel a match is no longer a good fit you can end the relationship, freeing up the talent to find a more suitable agent and make you more available to the others you represent. 
+%p
+  Congratulations! And good luck!

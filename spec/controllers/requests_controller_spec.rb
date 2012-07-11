@@ -60,9 +60,20 @@ describe RequestsController do
       put :update, {id:request,"request"=>{accepted:false}}
       request.agent.talents.count.should equal 0
     end
-    it 'should send two emails'
-    it 'should set pending flag to false' do
+    it 'should send two emails' do
+      ActionMailer::Base.deliveries = []
+      put :update, {id:request,"request"=>{accepted:true}}
+      ActionMailer::Base.deliveries.count.should equal 2
     end
-    it 'should redirect to agent dashboard' 
+    it 'should set pending flag to false' do
+      request.pending.should be_true
+      put :update, {id:request,"request"=>{accepted:true}}
+      request.reload
+      request.pending.should be_false
+    end
+    it 'should redirect to agent dashboard' do
+      put :update, {id:request,"request"=>{accepted:true}}
+      response.should redirect_to(agent_dashboard_path(request.agent))
+    end 
   end
 end
