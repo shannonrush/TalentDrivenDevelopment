@@ -6,8 +6,8 @@ class Request < ActiveRecord::Base
   after_update :update_associations,:send_update_request_emails,:remove_pending
   attr_accessible :accepted, :agent_id, :message, :pending, :talent_id, :agent, :talent
 
-  validates_inclusion_of :accepted, :on => :update, :in => [true,false]
-  validate :none_outstanding
+  validates_inclusion_of :accepted, :on => :update, :in => [true,false], :message => "choice must be selected"
+  validate :none_outstanding, :on => :create
 
   def send_new_request_emails
     RequestMailer.new_request(self).deliver    

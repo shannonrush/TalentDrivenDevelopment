@@ -5,6 +5,13 @@ describe Request do
     ActionMailer::Base.deliveries = []
     @request = FactoryGirl.create(:request_no_after_create)
   end
+  describe 'validations' do
+    it 'should require a value for accepted on update' do
+      @request.update_attributes(pending:false)
+      @request.should_not be_valid
+      @request.errors.messages[:accepted].first.should match "choice must be selected"
+    end
+  end
   describe '#send_new_request_emails' do
     it 'should send two emails' do
       @request.send_new_request_emails
