@@ -1,5 +1,5 @@
 = form_for(@user) do |f|
-  = render :partial => 'shared/errors', :locals => {:object => @user} 
+  = render 'shared/errors', :object => @user 
   %div.form
     =f.label :avatar
     %p
