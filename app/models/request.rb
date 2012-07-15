@@ -9,6 +9,8 @@ class Request < ActiveRecord::Base
   validates_inclusion_of :accepted, :on => :update, :in => [true,false], :message => "choice must be selected"
   validate :none_outstanding, :on => :create
 
+  protected 
+
   def send_new_request_emails
     RequestMailer.new_request(self).deliver    
     RequestMailer.new_request_confirmation(self).deliver
