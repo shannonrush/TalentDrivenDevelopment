@@ -1,0 +1,5 @@
+="#{@user.first_name} is unavailable for new clients at this time. "
+-if current_user.pending_notification_for?(@user)
+  ="You will be notified when #{@user.first_name} becomes available."
+-else
+  =link_to " - receive notification when #{@user.first_name} becomes available", notifications_path(agent_id:@user.id), :method => :post 
