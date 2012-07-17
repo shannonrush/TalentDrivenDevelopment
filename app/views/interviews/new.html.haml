@@ -1,0 +1,13 @@
+=form_for(@interview) do |f|
+  =render 'shared/errors', :object => @interview
+  =f.hidden_field :agent_id, :value=>current_user.id
+  =f.hidden_field :talent_id,:value=>@interview.talent.id
+  %p
+    =f.label :entity, "Who is the interview with? (Company or individual name)"
+    %br
+    =f.text_field :entity
+  %p
+    =f.label :description, "Tell #{@interview.talent.first_name} all about this interview. Include details about the company, the interview, and why you think this opportunity would be a great fit for #{@interview.talent.first_name}"
+    %br
+    =f.text_area :description
+  =image_submit_tag("send_button.png")

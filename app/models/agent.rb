@@ -4,6 +4,7 @@ class Agent < User
   has_many :badges, :through => :agent_badges
   has_many :requests
   has_many :notifications
+  has_many :interviews
 
   def available?
     self.talents.count < self.talents_allowed

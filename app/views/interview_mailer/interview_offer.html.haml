@@ -1,0 +1,18 @@
+%p
+  ="Hello #{@interview.talent.first_name},"
+%p
+  ="Your agent, #{@interview.agent.full_name}, has secured you an interview with #{@interview.entity}!"
+%p
+  From your agent:
+%p
+  ="'#{@interview.description}'"
+%p
+  Please 
+  =link_to " follow up ", edit_interview_path(@interview)
+  as soon as possible.
+%p
+  =link_to "Follow up on this interview offer", edit_interview_path(@interview)
+%p
+  Good luck!
+%p
+  The TDD Team

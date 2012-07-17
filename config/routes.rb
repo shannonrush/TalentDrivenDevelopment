@@ -34,7 +34,9 @@ TalentDrivenDevelopment::Application.routes.draw do
   get 'talents/:user_id/dashboard' => 'dashboards#show', :as => :talent_dashboard
   
   resources :requests 
-  resources :notifications
+  resources :notifications, :only => :create
+  resources :interviews
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

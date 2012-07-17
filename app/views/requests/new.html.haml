@@ -3,7 +3,7 @@
 %p
   Wonderful! You've chosen an agent! Send an introductory note along with your request if you like, and we'll let you know as soon as we hear back.
 =form_for(@request) do |f|
-  =render :partial => 'shared/errors', :locals => {:object => @request}
+  =render 'shared/errors', :object => @request
   %p
     =f.text_area :message
   =f.hidden_field :agent_id,:value=>@request.agent.id

@@ -1,5 +1,5 @@
 class RequestMailer < ActionMailer::Base
-  default from: "\TDD\"shannon@talentdrivendevelopment.com"
+  default from: "\TDD\"support@talentdrivendevelopment.com"
 
   def new_request(request)
     # sent to agent from talent upon requests#create
