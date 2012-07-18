@@ -1,0 +1,7 @@
+%p
+  ="#{@interview.talent.full_name} has indicated the interview with #{@interview.entity} is unacceptable. Irrelevant and unwanted opportunities presented to talent is exactly what TDD seeks to avoid."
+%p
+  ="If you feel that this interview was marked unacceptable in error please contact #{@interview.talent.first_name} for an explanation.  Perhaps there has been a misunderstanding about the nature of the interview."
+%p
+  If you would like to discuss this with the TDD Team please
+  =mail_to "support@talentdrivendevelopment.com", "feel free to contact us"

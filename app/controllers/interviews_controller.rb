@@ -19,10 +19,24 @@ class InterviewsController < ApplicationController
     @interviews = current_user.interviews
   end
 
+  def update
+    if @interview.update_attributes(params[:interview])
+      redirect_to talent_dashboard_path(current_user), :notice => "Your interview has been updated and your agent has been notified"
+    else
+      render :action => "edit"
+    end  
+  end
+
   protected
 
   def check_authorization
     authenticate_user!
+    if ["edit","update"].include? params[:action]
+      @interview = Interview.find params[:id]
+      unless current_user == @interview.talent
+        redirect_to dashboard_path_for_user(current_user), :notice => "This does not appear to be your interview. Please try again."
+      end
+    end
   end
 end
 

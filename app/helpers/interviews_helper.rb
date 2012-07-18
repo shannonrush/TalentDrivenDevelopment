@@ -9,7 +9,7 @@ module InterviewsHelper
   end
 
   def unacceptable_class(interview)
-    interview.acceptable || interview.acceptable.nil? ? "" : "unacceptable"
+    interview.acceptable || interview.acceptable.nil? ? nil : "unacceptable"
   end
 
   def talent_or_agent(interview, current_user)

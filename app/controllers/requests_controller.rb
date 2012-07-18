@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update_attributes(params[:request])
-      redirect_to(dashboard_path_for_user(current_user), :notice => "Your reply has been acknowledged")
+      redirect_to dashboard_path_for_user(current_user), :notice => "Your reply has been acknowledged"
     else
       render :action => "edit"
     end  

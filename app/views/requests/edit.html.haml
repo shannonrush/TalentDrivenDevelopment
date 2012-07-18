@@ -8,7 +8,7 @@
       From, #{@request.talent.first_name}
 
 =form_for(@request) do |f|
-  =render :partial => 'shared/errors', :locals => {:object => @request}
+  =render 'shared/errors', object:@request
   %p
     =f.radio_button :accepted, true
     =f.label :accepted_true, "Yes, I accept and will be a great agent for #{@request.talent.first_name}!"

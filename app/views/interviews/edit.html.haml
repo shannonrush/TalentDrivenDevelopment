@@ -1,0 +1,29 @@
+%h2 Your Interview
+%p
+  =@interview.entity
+%p
+  =@interview.description
+=form_for(@interview) do |f|
+  =render 'shared/errors', object:@interview
+  %p
+    Is this an appropriate interview for you? Appropriate just means generally within your skillset and other criteria, not that it's a perfect match in every way. 
+  %p
+    An example of an unacceptable interview is a PHP developer position offered to a developer with no experience with or interest in PHP. 
+  %p
+    Another example is a position requiring relocation to a developer who has indicated they are not willing to move.
+  %p
+    =f.radio_button :acceptable, true
+    =f.label :acceptable_true, "Yes, this interview is acceptable"
+  %p
+    =f.radio_button :acceptable, false
+    =f.label :acceptable_false, "No, this interview is unacceptable"
+  %p
+    Would you like to accept this interview?
+  %p
+    =f.radio_button :accepted, true
+    =f.label :accepted_true, "Yes"
+  %p
+    =f.radio_button :accepted, false
+    =f.label :accepted_false, "No"
+  %p
+    =image_submit_tag("submit_button.png")

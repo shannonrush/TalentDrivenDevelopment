@@ -3,14 +3,18 @@ class Interview < ActiveRecord::Base
   belongs_to :agent
   belongs_to :talent
   validates_presence_of :agent_id, :talent_id, :entity, :description
-  validates_inclusion_of :acceptable, :in => [true,false], :on => :update
-  validates_inclusion_of :accepted, :in => [true,false], :on => :update
+  validates_inclusion_of :acceptable, :in => [true,false], :on => :update, :message => "must be selected"
+  validates_inclusion_of :accepted, :in => [true,false], :on => :update, :message => "must be selected"
   after_create :send_interview_offer
+  after_update :send_interview_reply
 
   protected
 
   def send_interview_offer
     InterviewMailer.interview_offer(self).deliver  
   end
-
+  
+  def send_interview_reply
+    InterviewMailer.interview_reply(self).deliver
+  end
 end

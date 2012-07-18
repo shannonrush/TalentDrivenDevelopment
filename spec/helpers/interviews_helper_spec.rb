@@ -8,12 +8,12 @@ describe InterviewsHelper do
       interview.acceptable = false
       unacceptable_class(interview).should match "unacceptable"
     end
-    it 'should return empty string if interview.acceptable is true' do
+    it 'should return nil if interview.acceptable is true' do
       interview.acceptable = true
-      unacceptable_class(interview).should be_empty
+      unacceptable_class(interview).should be_nil
     end
-    it 'should return empty string interview.unacceptable is nil' do
-      unacceptable_class(interview).should be_empty
+    it 'should return nil interview.unacceptable is nil' do
+      unacceptable_class(interview).should be_nil
     end
   end
   describe '#accepted_text' do
