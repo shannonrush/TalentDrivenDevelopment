@@ -1,0 +1,10 @@
+%div.interview[unacceptable_class(interview)]
+  %p
+    Accepted? 
+    =accepted_text(interview)
+  %p
+    =talent_or_agent(interview, current_user)
+  %p
+    =interview.entity
+  %p
+    =interview.description

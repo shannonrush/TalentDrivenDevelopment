@@ -12,8 +12,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :background, :statement, :avatar, :public
 
-def full_name
-  self.first_name+" "+self.last_name
-end
+  def full_name
+    self.first_name+" "+self.last_name
+  end
+
+  def agent?
+    self.kind_of? Agent
+  end
+
+  def talent?
+    self.kind_of? Talent
+  end
 
 end

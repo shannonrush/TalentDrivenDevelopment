@@ -1,5 +1,7 @@
 class InterviewsController < ApplicationController
-  
+
+  before_filter :check_authorization
+
   def new
     @interview = Interview.new(talent_id:params[:talent_id])
   end
@@ -11,6 +13,16 @@ class InterviewsController < ApplicationController
     else
       render :action => :new
     end   
+  end
+
+  def index
+    @interviews = current_user.interviews
+  end
+
+  protected
+
+  def check_authorization
+    authenticate_user!
   end
 end
 

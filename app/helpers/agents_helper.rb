@@ -1,6 +1,6 @@
 module AgentsHelper
   def show_request?(current_user)
-    current_user.kind_of?(Talent) ? true : false
+    current_user && current_user.talent? ? true : false
   end
 
   def request_by_availability(agent)
