@@ -1,0 +1,33 @@
+%h2 Your Offer
+%div.offer
+  %p.entity
+    =@offer.entity
+  %p.description
+    ="'#{@offer.description}'"
+=form_for(@offer) do |f|
+  =render 'shared/errors', object:@offer
+  %p
+    Is this offer acceptable? Acceptable means falling within, or acceptably close to, the requirements you have described for your agent.
+  %p
+    An example of an unacceptable offer is a stated minimum salary requirement of US$100,000 and an offer for US$50,000.
+  %p
+    Another example of an unacceptable offer is 100% onsite requirement when you stated you wished to telecommute at least 50% of the time.
+  %p
+    =f.radio_button :acceptable, true
+    =f.label :acceptable_true, "Yes, this offer is acceptable"
+  %p
+    =f.radio_button :acceptable, false
+    =f.label :acceptable_false, "No, this offer is unacceptable"
+  %p
+    Would you like to accept this offer?
+  %p
+    =f.radio_button :accepted, true
+    =f.label :accepted_true, "Yes"
+  %p
+    =f.radio_button :accepted, false
+    =f.label :accepted_false, "No"
+  %p
+    =f.label :comment, "Please add an additional comment. If you have marked this offer as unacceptable or rejected please indicate whether you are open to another offer with #{@offer.entity}, and what you would like to see included in any counter offer. Please be clear about what requirements are a must and what you might be flexible about."
+    =f.text_area :comment
+  %p
+    =image_submit_tag("submit_button.png")

@@ -1,0 +1,13 @@
+=form_for(@offer) do |f|
+  =render 'shared/errors', :object => @offer
+  =f.hidden_field :agent_id, :value=>current_user.id
+  =f.hidden_field :talent_id,:value=>@offer.talent.id
+  %p
+    =f.label :entity, "Who is the offer with? (Company or individual name)"
+    %br
+    =f.text_field :entity
+  %p
+    =f.label :description, "Describe this offer including compensation, benefits, duration, location and all other relevant details. It is very important this offer falls within #{@offer.talent.first_name}'s requirements. It is recommended you acknowledge these requirements in the offer."
+    %br
+    =f.text_area :description
+  =image_submit_tag("send_button.png")

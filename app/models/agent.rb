@@ -5,6 +5,7 @@ class Agent < User
   has_many :requests
   has_many :notifications
   has_many :interviews
+  has_many :offers
 
   def available?
     self.talents.count < self.talents_allowed

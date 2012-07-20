@@ -1,0 +1,10 @@
+%p
+  ="#{@offer.talent.full_name} has indicated that the offer from #{@offer.entity} is unacceptable.  An unacceptable offer is one clearly outside of the requirements put forth by the talent."
+-if @offer.comment.present?
+  %p
+    ="#{@offer.talent.first_name} added this comment:"
+  %p
+    ="'#{@offer.comment}'"
+%p
+  ="We strongly urge you to get in contact with #{@offer.talent.first_name} to discuss requirements. If there was a misunderstanding and this offer was within requirements please"
+  =mail_to "support@talentdrivendevelopment.com", "contact us and we will help get everything back on track."

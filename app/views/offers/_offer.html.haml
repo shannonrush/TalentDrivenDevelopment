@@ -1,0 +1,16 @@
+%div.offer{:class => unacceptable_class(offer)}
+  %p.entity
+    =offer.entity
+  %p
+    Accepted? 
+    =link_to_if(needs_response(offer,current_user),accepted_text(offer),edit_offer_path(offer))
+  %p
+    =talent_or_agent(offer, current_user)
+  %p.description
+    ="'#{offer.description}'"
+  -if offer.comment.present?
+    %p
+      ="Comment from #{@offer.talent.first_name}:"
+    %p.comment
+      ="'#{@offer.comment}'"
+    

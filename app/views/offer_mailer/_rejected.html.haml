@@ -1,0 +1,8 @@
+%p
+  ="Unfortunately #{@offer.talent.full_name} has rejected the offer from #{@offer.entity}.
+-if @offer.comment.present?
+  %p
+    ="Here is a note left by #{@offer.talent.first_name}:"
+    ="'#{@offer.comment}'"
+%p
+  ="Unless #{@offer.talent.first_name} has indicated otherwise we urge you to put together a counter offer that more closely meets #{@offer.talent.first_name}'s requirements."

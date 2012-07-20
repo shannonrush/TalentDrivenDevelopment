@@ -1,0 +1,14 @@
+%p
+  ="Hello #{@offer.talent.first_name},"
+%p
+  ="An offer has been made to you by #{@offer.entity}. Here are the details, from your agent, #{@offer.agent.first_name}:"
+%p
+  ="'#{@offer.description}'"
+%p
+  Please
+  =link_to "follow up on this offer", edit_offer_url(@offer)
+  as soon as possible
+%p
+  Sincerely,
+%p
+  The TDD Team

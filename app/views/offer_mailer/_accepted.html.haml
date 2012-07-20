@@ -1,0 +1,14 @@
+%p
+  ="Congratulations! #{@offer.talent.full_name} has accepted the offer from #{@offer.entity}!"
+%p
+  Here are the details of this offer:
+  ="'#{@offer.description}'"
+%p
+  Per the TDD agreement, 8% of earnings will go to you as the agent. If this is a project based contract you will receive 8% of the total contract. If it is a multiple payment or full-time position you will receive 8% of earnings for the first 6 months or the end of the position, whichever comes first. Payment will be made from TDD within 10 business days of TDD receiving payment. 
+%p
+  If you have any questions please feel free to
+  =mail_to "support@talentdrivendevelopment.com","contact us."
+  ="We also strongly urge you to stay in touch with #{@offer.talent.first_name}."
+%p
+  ="With the acceptance of this offer #{@offer.talent.first_name} will be removed from your client list so you will have the opportunity to fill that talent slot with someone new.  Congratulations again!" 
+  

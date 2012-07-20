@@ -36,6 +36,7 @@ TalentDrivenDevelopment::Application.routes.draw do
   resources :requests 
   resources :notifications, :only => :create
   resources :interviews
+  resources :offers
 
   # Sample resource route with options:
   #   resources :products do
