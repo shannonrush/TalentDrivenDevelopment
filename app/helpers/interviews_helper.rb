@@ -13,6 +13,10 @@ module InterviewsHelper
   end
 
   def talent_or_agent(interview, current_user)
-    current_user.agent? ? interview.talent.full_name : interview.agent.full_name
+    current_user.agent? ? "Talent: #{interview.talent.full_name}" : "Agent: #{interview.agent.full_name}"
+  end
+
+  def needs_response(interview, current_user)
+    interview.talent == current_user && interview.accepted.nil?
   end
 end

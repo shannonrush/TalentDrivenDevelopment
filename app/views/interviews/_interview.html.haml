@@ -1,10 +1,10 @@
-%div.interview[unacceptable_class(interview)]
-  %p
-    Accepted? 
-    =accepted_text(interview)
-  %p
-    =talent_or_agent(interview, current_user)
-  %p
+%div.interview{:class => unacceptable_class(interview)}
+  %p.entity
     =interview.entity
   %p
-    =interview.description
+    Accepted? 
+    =link_to_if(needs_response(interview,current_user),accepted_text(interview),edit_interview_path(interview))
+  %p
+    =talent_or_agent(interview, current_user)
+  %p.description
+    ="'#{interview.description}'"

@@ -1,6 +1,6 @@
 %h2
   My Interviews
--if @interviews.empty?
+-if current_user.interviews.empty?
   You have no interviews
 -else
-  =render @interviews
+  =render current_user.interviews

@@ -1,0 +1,6 @@
+%h2
+  My Clients
+-if @user.talents.empty?
+  You have no clients
+-else
+  =render :partial => 'agent/talent', :collection => @user.talents

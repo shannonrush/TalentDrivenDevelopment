@@ -30,13 +30,29 @@ describe InterviewsHelper do
     end
   end
   describe '#talent_or_agent' do
-    it 'should return the talent name if current user is Agent' do
+    it 'should return the Talent: and talent name if current user is Agent' do
       sign_in(agent)
-      talent_or_agent(interview, agent).should match interview.talent.full_name
+      talent_or_agent(interview, agent).should match "Talent: #{interview.talent.full_name}"
     end
-    it 'should return the agent name if current user is Talent' do
+    it 'should return Agent: and the agent name if current user is Talent' do
       sign_in(talent)
-      talent_or_agent(interview, talent).should match interview.agent.full_name 
+      talent_or_agent(interview, talent).should match "Agent: #{interview.agent.full_name}" 
+    end
+  end
+  describe '#needs_response' do
+    it 'should return true if current user is the interview talent and interview has not been accepted or rejected' do
+      needs_response(interview, interview.talent).should be_true
+    end
+    it 'should return false if current user is not interview talent' do
+      needs_response(interview, interview.agent).should be_false
+    end
+    it 'should return false if current user is interview talent and interview has been accepted' do
+      interview.accepted = true
+      needs_response(interview, interview.talent).should be_false
+    end
+    it 'should return false if current user is interview talent and interview has been rejected' do
+      interview.accepted = false
+      needs_response(interview, interview.talent).should be_false
     end
   end
 end

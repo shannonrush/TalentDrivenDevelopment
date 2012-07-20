@@ -1,8 +1,9 @@
 %h2 Your Interview
-%p
-  =@interview.entity
-%p
-  =@interview.description
+%div.interview
+  %p.entity
+    =@interview.entity
+  %p.description
+    ="'#{@interview.description}'"
 =form_for(@interview) do |f|
   =render 'shared/errors', object:@interview
   %p

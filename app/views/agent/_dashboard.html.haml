@@ -1,8 +1,8 @@
 =link_to "Edit Profile", edit_agent_path(@user)
 |
 =link_to "View Profile", agent_path(@user)
-=render 'badges'
-%h2 
-  My Clients
-=render :partial => 'agent/talent', :collection => @user.talents
-=render 'messages'
+%div.dashboard
+  =render 'badges'
+  =render 'agent/talents'
+  =render 'interviews/interviews'  
+  =render 'messages'

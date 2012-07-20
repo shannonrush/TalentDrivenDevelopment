@@ -1,0 +1,7 @@
+-if @user.agent.present?
+  %h2
+    My Agent
+  %p
+    =link_to @user.agent.full_name, agent_path(@user.agent)
+-else
+  =link_to "Find an Agent", agents_path

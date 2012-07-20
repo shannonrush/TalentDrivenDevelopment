@@ -15,10 +15,6 @@ class InterviewsController < ApplicationController
     end   
   end
 
-  def index
-    @interviews = current_user.interviews
-  end
-
   def update
     if @interview.update_attributes(params[:interview])
       redirect_to talent_dashboard_path(current_user), :notice => "Your interview has been updated and your agent has been notified"
