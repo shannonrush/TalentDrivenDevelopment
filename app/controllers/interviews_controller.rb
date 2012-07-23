@@ -1,6 +1,7 @@
 class InterviewsController < ApplicationController
 
   before_filter :check_authorization
+  before_filter :disallow_multiple_updates, :only => [:edit,:update]
 
   def new
     @interview = Interview.new(talent_id:params[:talent_id])
@@ -9,7 +10,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(params[:interview])
     if @interview.save
-      redirect_to interviews_path, :notice => "Interview offer sent!"
+      redirect_to interviews_path, :notice => "Interview interview sent!"
     else
       render :action => :new
     end   
@@ -32,6 +33,12 @@ class InterviewsController < ApplicationController
       unless current_user == @interview.talent
         redirect_to dashboard_path_for_user(current_user), :notice => "This does not appear to be your interview. Please try again."
       end
+    end
+  end
+  
+  def disallow_multiple_updates
+    unless @interview.acceptable.nil? && @interview.accepted.nil?
+      redirect_to dashboard_path_for_user(current_user), :notice => "You have already responded to this interview."
     end
   end
 end

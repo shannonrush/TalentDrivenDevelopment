@@ -29,7 +29,7 @@ describe InterviewsController do
     it 'should redirect to interviews_path with success notice if saved' do
       post :create,{:interview => {talent_id:talent.id,agent_id:agent.id,entity:"Some Co.",description:"A great job!"}} 
       response.should redirect_to interviews_path
-      flash[:notice].should match "Interview offer sent!"
+      flash[:notice].should match "Interview interview sent!"
     end
     it 'should render new if invalid' do
       post :create,{:interview => {agent_id:agent.id,entity:"Some Co.",description:"A great job!"}} 
@@ -54,6 +54,19 @@ describe InterviewsController do
       response.should redirect_to talent_dashboard_path(other_talent)
       flash[:notice].should match "This does not appear to be your interview. Please try again."
     end
+    it 'should redirect to user dashboard if interview has already been updated' do
+      sign_in(interview.talent)
+      interview.update_column(:acceptable,true)
+      interview.update_column(:accepted,true)
+      get :edit, id:interview.id
+      response.should redirect_to talent_dashboard_path(interview.talent)
+      flash[:notice].should match "You have already responded to this interview."  
+    end
+    it 'should not redirect if interview has not been updated' do
+      sign_in(interview.talent)
+      get :edit, id:interview.id
+      response.should_not be_redirect 
+    end
   end
   describe '#update' do
     it 'should redirect to sign in if no current user' do
@@ -66,6 +79,19 @@ describe InterviewsController do
       put :update,id:interview.id
       response.should redirect_to talent_dashboard_path(other_talent)
       flash[:notice].should match "This does not appear to be your interview. Please try again."
+    end
+    it 'should redirect to user dashboard if interview has already been updated' do
+      sign_in(interview.talent)
+      interview.update_column(:acceptable,true)
+      interview.update_column(:accepted,true)
+      put :update, id:interview.id
+      response.should redirect_to talent_dashboard_path(interview.talent)
+      flash[:notice].should match "You have already responded to this interview."  
+    end
+    it 'should not redirect if interview has not been updated' do
+      sign_in(interview.talent)
+      put :update, id:interview.id
+      response.should_not be_redirect 
     end
     it 'should update acceptable and accepted' do
       sign_in(interview.talent)

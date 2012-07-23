@@ -54,6 +54,19 @@ describe OffersController do
       response.should redirect_to talent_dashboard_path(other_talent)
       flash[:notice].should match "This does not appear to be your offer. Please try again."
     end
+    it 'should redirect to user dashboard if offer has already been updated' do
+      sign_in(offer.talent)
+      offer.update_column(:acceptable,true)
+      offer.update_column(:accepted,true)
+      get :edit, id:offer.id
+      response.should redirect_to talent_dashboard_path(offer.talent)
+      flash[:notice].should match "You have already responded to this offer."  
+    end
+    it 'should not redirect if offer has not been updated' do
+      sign_in(offer.talent)
+      get :edit, id:offer.id
+      response.should_not be_redirect 
+    end
   end
   describe '#update' do
     it 'should redirect to sign in if no current user' do
@@ -66,6 +79,19 @@ describe OffersController do
       put :update,id:offer.id
       response.should redirect_to talent_dashboard_path(other_talent)
       flash[:notice].should match "This does not appear to be your offer. Please try again."
+    end
+    it 'should redirect to user dashboard if offer has already been updated' do
+      sign_in(offer.talent)
+      offer.update_column(:acceptable,true)
+      offer.update_column(:accepted,true)
+      put :update, id:offer.id
+      response.should redirect_to talent_dashboard_path(offer.talent)
+      flash[:notice].should match "You have already responded to this offer."  
+    end
+    it 'should not redirect if offer has not been updated' do
+      sign_in(offer.talent)
+      put :update, id:offer.id
+      response.should_not be_redirect 
     end
     it 'should update acceptable and accepted' do
       sign_in(offer.talent)

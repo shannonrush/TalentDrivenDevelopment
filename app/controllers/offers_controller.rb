@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
 
   before_filter :check_authorization
+  before_filter :disallow_multiple_updates, :only => [:edit,:update]
 
   def new
     @offer = Offer.new(talent_id:params[:talent_id])
@@ -32,6 +33,12 @@ class OffersController < ApplicationController
       unless current_user == @offer.talent
         redirect_to dashboard_path_for_user(current_user), :notice => "This does not appear to be your offer. Please try again."
       end
+    end
+  end
+
+  def disallow_multiple_updates
+    unless @offer.acceptable.nil? && @offer.accepted.nil?
+      redirect_to dashboard_path_for_user(current_user), :notice => "You have already responded to this offer."
     end
   end
 
