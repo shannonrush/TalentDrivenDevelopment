@@ -28,6 +28,7 @@
     =f.label :accepted_false, "No"
   %p
     =f.label :comment, "Please add an additional comment. If you have marked this offer as unacceptable or rejected please indicate whether you are open to another offer with #{@offer.entity}, and what you would like to see included in any counter offer. Please be clear about what requirements are a must and what you might be flexible about."
+    %br
     =f.text_area :comment
   %p
     =image_submit_tag("submit_button.png")

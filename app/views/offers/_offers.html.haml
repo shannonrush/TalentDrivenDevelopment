@@ -1,0 +1,6 @@
+%h2
+  My Offers
+-if current_user.offers.empty?
+  You have no offers
+-else
+  =render current_user.offers

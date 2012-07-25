@@ -10,7 +10,7 @@
     ="'#{offer.description}'"
   -if offer.comment.present?
     %p
-      ="Comment from #{@offer.talent.first_name}:"
+      ="Comment from #{offer.talent.first_name}:"
     %p.comment
-      ="'#{@offer.comment}'"
+      ="'#{offer.comment}'"
     
