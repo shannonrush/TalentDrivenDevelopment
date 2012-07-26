@@ -107,6 +107,13 @@ describe InterviewsController do
       put :update,id:interview.id,interview:{accepted:true,acceptable:true}
       ActionMailer::Base.deliveries.count.should equal 1
     end
+    it 'should add interview badge to agent if interview is fifth accepted interview' do
+      sign_in(interview.talent)
+      4.times {interview.agent.interviews << FactoryGirl.create(:interview,talent:talent, agent:interview.agent, acceptable:true, accepted:true)}
+      put :update,id:interview.id,interview:{accepted:true,acceptable:true}
+      interview.reload
+      interview.agent.badges.should include(Badge.find_by_name("Interview Wonder"))    
+    end
     it 'should redirect to talent dashboard path upon successful update' do
       sign_in(interview.talent)
       put :update,id:interview.id,interview:{accepted:true,acceptable:true}
