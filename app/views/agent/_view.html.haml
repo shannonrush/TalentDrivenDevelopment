@@ -1,5 +1,7 @@
 %div.avatar
   = image_tag @user.avatar.url(:medium)
+-unless @user.badges.empty?
+  =render 'badges/badge_lists', :user => @user  
 %h2
   ="#{@user.first_name} #{@user.last_name}"
 %p
