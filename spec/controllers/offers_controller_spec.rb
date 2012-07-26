@@ -107,6 +107,13 @@ describe OffersController do
       put :update,id:offer.id,offer:{accepted:true,acceptable:true}
       ActionMailer::Base.deliveries.count.should equal 1
     end
+    it 'should award Offer Master badge to agent upon 5th acceptable offer' do
+      sign_in(offer.talent)
+      4.times {offer.agent.offers << FactoryGirl.create(:offer,talent:offer.talent,agent:offer.agent,acceptable:true,accepted:true)}
+      put :update,id:offer.id,offer:{accepted:true,acceptable:true}
+      offer.reload
+      offer.agent.badges.should include(Badge.find_by_name("Offer Master"))
+    end
     it 'should redirect to talent dashboard path upon successful update' do
       sign_in(offer.talent)
       put :update,id:offer.id,offer:{accepted:true,acceptable:true}

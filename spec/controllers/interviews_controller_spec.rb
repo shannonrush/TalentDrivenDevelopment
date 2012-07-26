@@ -107,7 +107,7 @@ describe InterviewsController do
       put :update,id:interview.id,interview:{accepted:true,acceptable:true}
       ActionMailer::Base.deliveries.count.should equal 1
     end
-    it 'should add interview badge to agent if interview is fifth accepted interview' do
+    it 'should reward Interview Wonder badge to agent if interview is fifth accepted interview' do
       sign_in(interview.talent)
       4.times {interview.agent.interviews << FactoryGirl.create(:interview,talent:talent, agent:interview.agent, acceptable:true, accepted:true)}
       put :update,id:interview.id,interview:{accepted:true,acceptable:true}

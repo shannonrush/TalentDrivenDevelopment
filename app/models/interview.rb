@@ -1,7 +1,8 @@
 class Interview < ActiveRecord::Base
   attr_accessible :acceptable, :accepted, :agent_id, :agent, :description, :entity, :talent_id, :talent
 
-  scope :accepted, lambda {|agent| where('accepted IS TRUE AND agent_id = ?', agent)} 
+  scope :accepted, where(accepted:true)
+  scope :for_agent, lambda {|agent| where('agent_id = ?',agent)} 
 
   belongs_to :agent
   belongs_to :talent
@@ -25,7 +26,7 @@ class Interview < ActiveRecord::Base
 
   def update_badges
     # Interview Wonder badge is awarded upon 5th accepted interview
-    if Interview.accepted(self.agent).count == 5
+    if Interview.accepted.for_agent(self.agent).count == 5
       agent.badges << Badge.find_by_name("Interview Wonder")
     end
   end
