@@ -2,6 +2,7 @@ class Offer < ActiveRecord::Base
   attr_accessible :acceptable, :accepted, :agent_id, :agent, :comment, :description, :entity, :talent_id, :talent
 
   scope :acceptable, where(acceptable:true)
+  scope :accepted, where(accepted:true)
   scope :for_agent, lambda {|agent| where('agent_id = ?',agent)}
 
   belongs_to :agent
@@ -29,5 +30,10 @@ class Offer < ActiveRecord::Base
     if Offer.acceptable.for_agent(self.agent).count == 5
       self.agent.badges << Badge.find_by_name("Offer Master")
     end  
+
+    # Happy Talents badge is awarded upon 5 accepted offers
+    if Offer.accepted.for_agent(self.agent).count == 5
+      self.agent.badges << Badge.find_by_name("Happy Talents")
+    end
   end
 end
