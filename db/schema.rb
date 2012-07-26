@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720173709) do
+ActiveRecord::Schema.define(:version => 20120725222942) do
 
   create_table "agent_badges", :id => false, :force => true do |t|
     t.integer  "agent_id"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(:version => 20120720173709) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "interviews", :force => true do |t|

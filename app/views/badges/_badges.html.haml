@@ -1,0 +1,7 @@
+%h2
+  My Badges
+-if current_user.badges.empty?
+  You have no badges yet
+-else 
+  -current_user.badges.each_slice(3) do |badges| 
+    =render "badges/badge_list", :badges => badges
