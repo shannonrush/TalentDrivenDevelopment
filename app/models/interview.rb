@@ -2,6 +2,7 @@ class Interview < ActiveRecord::Base
   attr_accessible :acceptable, :accepted, :agent_id, :agent, :description, :entity, :talent_id, :talent
 
   scope :accepted, where(accepted:true)
+  scope :acceptable, where(acceptable:true)
   scope :for_agent, lambda {|agent| where('agent_id = ?',agent)} 
 
   belongs_to :agent

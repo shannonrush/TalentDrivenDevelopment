@@ -4,6 +4,11 @@
   ="#{@user.first_name} #{@user.last_name}"
 %p
   =mail_to @user.email
+-if @user.agent.present?
+  %p
+    %h3
+      Represented By
+    =link_to @user.agent.full_name,agent_path(@user.agent)
 %p
   %h3
     ="#{@user.first_name}'s Background"

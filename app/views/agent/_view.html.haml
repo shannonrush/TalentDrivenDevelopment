@@ -11,6 +11,12 @@
     =render "agent/#{request_by_availability(@user)}"
 %p
   %h3
+    ="#{@user.first_name}'s Stats"
+  ="Interviews Offered: #{Interview.acceptable.for_agent(@user).count}"
+  %br
+  ="Offers Made: #{Offer.acceptable.for_agent(@user).count}"
+%p
+  %h3
     ="#{@user.first_name}'s Background"
   =@user.background
 %p
