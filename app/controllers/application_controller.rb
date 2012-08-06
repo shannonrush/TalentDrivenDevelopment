@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   def dashboard_path_for_user(user)
     send("#{user.class.name.underscore}_dashboard_path",user)
   end
+
+  def profile_path_for_user(user)
+    send("#{user.class.name.underscore}_path",user)
+  end
   
   def after_sign_in_path_for(resource)
     dashboard_path_for_user(resource)

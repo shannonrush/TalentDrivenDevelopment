@@ -31,4 +31,11 @@ describe UsersController do
       response.should redirect_to(talent_dashboard_path(talent))
     end
   end
+  describe '#show' do
+    it 'should redirect to correct path if path is incorrect user type' do
+      get :show, :id => agent.id
+      request.stub!(:path).and_return("/talents/#{agent.id}")
+      response.should redirect_to(agent_path(agent))
+    end
+  end
 end
