@@ -13,7 +13,7 @@ class Offer < ActiveRecord::Base
   validates_inclusion_of :accepted, :in => [true,false], :on => :update, :message => "must be selected"
 
   after_create :send_offer
-  after_update :send_offer_reply, :update_badges
+  after_update :send_offer_reply, :update_badges, :update_talents
 
   protected
 
@@ -35,5 +35,9 @@ class Offer < ActiveRecord::Base
     if Offer.accepted.for_agent(self.agent).count == 5
       self.agent.badges << Badge.find_by_name("Happy Talents")
     end
+  end
+
+  def update_talents
+    self.agent.talents.delete(self.talent) if self.accepted
   end
 end

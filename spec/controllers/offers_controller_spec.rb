@@ -121,6 +121,19 @@ describe OffersController do
       offer.reload
       offer.agent.badges.should include(Badge.find_by_name("Offer Master"))
     end
+    it 'should remove talent from agent.talents if offer is accepted' do
+      sign_in(offer.talent)
+      put :update,id:offer.id,offer:{accepted:true,acceptable:true}
+      offer.reload
+      offer.agent.talents.should_not include(offer.talent)
+    end
+
+    it 'should not remove talent from agent.talents if offer is not accepted' do
+      sign_in(offer.talent)
+      put :update,id:offer.id,offer:{accepted:false,acceptable:true}
+      offer.reload
+      offer.agent.talents.should include(offer.talent)
+    end
     it 'should redirect to talent dashboard path upon successful update' do
       sign_in(offer.talent)
       put :update,id:offer.id,offer:{accepted:true,acceptable:true}
