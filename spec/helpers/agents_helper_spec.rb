@@ -16,10 +16,12 @@ describe AgentsHelper do
     end
   end
   describe '#request_by_availability' do
-    before(:each) do
-      sign_in(talent)
+    it 'should return request if agent is available' do
+      request_by_availability(agent).should match "request" 
     end
-    it 'should return request if agent is available'
-    it 'should return unavailable if agent is unavailable' 
+    it 'should return unavailable if agent is unavailable' do
+      agent.talents << talent
+      request_by_availability(agent).should match "unavailable"
+    end
   end
 end

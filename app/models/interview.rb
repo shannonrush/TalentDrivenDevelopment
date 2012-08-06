@@ -3,6 +3,7 @@ class Interview < ActiveRecord::Base
 
   scope :accepted, where(accepted:true)
   scope :acceptable, where(acceptable:true)
+  scope :unacceptable, where(acceptable:false)
   scope :for_agent, lambda {|agent| where('agent_id = ?',agent)} 
 
   belongs_to :agent

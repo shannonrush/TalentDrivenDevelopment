@@ -2,6 +2,7 @@ class Offer < ActiveRecord::Base
   attr_accessible :acceptable, :accepted, :agent_id, :agent, :comment, :description, :entity, :talent_id, :talent
 
   scope :acceptable, where(acceptable:true)
+  scope :unacceptable, where(acceptable:false)
   scope :accepted, where(accepted:true)
   scope :for_agent, lambda {|agent| where('agent_id = ?',agent)}
 
