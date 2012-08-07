@@ -168,6 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  daemons
   debugger
   delayed_job_active_record
   devise
