@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
 
+gem 'delayed_job_active_record'
 
 group :development do
  gem 'thin'
