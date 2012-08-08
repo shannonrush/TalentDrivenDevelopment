@@ -5,4 +5,12 @@ class Notification < ActiveRecord::Base
   belongs_to :talent
 
   validates_presence_of :agent, :talent
+
+  def self.notify
+    notifications = Notification.all.collect {|n| n if n.agent.available?}
+    notifications.each do |n| 
+      NotificationMailer.notify(n).deliver
+      n.delete
+    end
+  end
 end

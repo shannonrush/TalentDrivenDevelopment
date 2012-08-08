@@ -1,0 +1,10 @@
+%p
+  ="Hello, #{@notification.talent.first_name},"
+%p
+  The agent you expressed interest in,
+  =link_to @notification.agent.full_name, agent_url(@notification.agent)
+  , is now available.
+%p
+  Sincerely,
+%p
+  The TDD Team

@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'uglifier'
 gem 'therubyracer'
 
+gem 'whenever', :require => false
 
 group :development do
  gem 'thin'
