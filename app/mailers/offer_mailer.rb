@@ -1,5 +1,5 @@
 class OfferMailer < ActionMailer::Base
-  default from: "\TDD\"support@talentdrivendevelopment.com"
+  default from: "\"TDD\"<support@talentdrivendevelopment.com>"
 
   def offer(offer)
     # sent to offer talent on offers#create

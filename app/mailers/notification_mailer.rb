@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "\TDD\"support@talentdrivendevelopment.com"
+  default from: "\"TDD\"<support@talentdrivendevelopment.com>"
 
   def notify(notification)
     # sent to talent when agent has become available

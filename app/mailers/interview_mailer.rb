@@ -1,5 +1,5 @@
 class InterviewMailer < ActionMailer::Base
-  default from: "\TDD\"support@talentdrivendevelopment.com"
+  default from: "\"TDD\"<support@talentdrivendevelopment.com>"
 
   def interview_offer(interview)
     # sent to talent upon interviews#create
