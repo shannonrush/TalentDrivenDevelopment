@@ -2,6 +2,7 @@ production:
   solr:
     hostname: localhost
     port: 8983
+    path: '/solr/'
     log_level: WARNING
 
 development:
