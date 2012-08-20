@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :background, :statement, :avatar, :public
 
+  # sunspot
+  searchable :auto_index => true, :auto_remove => true do
+    text :background, :statement
+  end
+
   def full_name
     self.first_name+" "+self.last_name
   end

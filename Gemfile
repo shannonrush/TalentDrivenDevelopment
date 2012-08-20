@@ -16,11 +16,14 @@ gem 'therubyracer'
 
 gem 'whenever', :require => false
 
+gem 'sunspot_rails'
+
 group :development do
  gem 'thin'
  gem 'quiet_assets'
  gem 'debugger'
  gem "rspec-rails"
+ gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 end
 
 group :test do
