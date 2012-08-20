@@ -1,0 +1,8 @@
+%div.list
+  %div.left
+    =link_to(image_tag(talent.avatar.url(:thumb)),talent_path(talent))
+  %div.right
+    %p.name
+      =link_to "#{talent.first_name} #{talent.last_name}",talent_path(talent)
+    %p.statement
+      =talent.statement

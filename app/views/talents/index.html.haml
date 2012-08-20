@@ -1,0 +1,9 @@
+=form_tag talents_path, :method => :get do
+  =text_field_tag :search, params[:search]
+  =submit_tag "Search", :name => nil
+
+-if @talents.empty?
+  %p
+    No talents found, please try different keywords
+-else
+  =render @talents

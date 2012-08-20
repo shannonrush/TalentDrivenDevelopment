@@ -2,7 +2,11 @@ class TalentsController < ApplicationController
   before_filter :check_authorization, :only => [:edit, :update]
 
   def index
-    @talents = Talent.all
+    @talents = Talent.search{fulltext params[:search]}.results
+  end
+  
+  def show
+    @talent = Talent.find(params[:id])
   end
   
   def update    
@@ -13,9 +17,6 @@ class TalentsController < ApplicationController
     end
   end
 
-  def show
-    @talent = Talent.find(params[:id])
-  end
   
   protected 
 

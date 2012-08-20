@@ -3,7 +3,7 @@ class AgentsController < ApplicationController
   before_filter :check_authorization, :only => [:edit, :update]
 
   def index
-    @agents = Agent.all
+    @agents = Agent.search{fulltext params[:search]}.results
   end
 
   def show
