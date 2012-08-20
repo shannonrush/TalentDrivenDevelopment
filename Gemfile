@@ -29,4 +29,5 @@ end
 group :test do
   gem "rspec-rails"
   gem "factory_girl"
+  gem "sunspot_test"
 end

@@ -1,9 +1,2 @@
+
 -@users.each do |u|
-  %div.list
-    %div.left
-      =link_to(image_tag(u.avatar.url(:thumb)),path_for_user(u))
-    %div.right
-      %p.name
-        =link_to "#{u.first_name} #{u.last_name}",path_for_user(u)
-      %p.statement
-        =u.statement

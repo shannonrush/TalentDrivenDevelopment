@@ -1,0 +1,5 @@
+=form_tag agents_path, :method => :get do
+  =text_field_tag :search, params[:search]
+  =submit_tag "Search", :name => nil
+
+=render @agents

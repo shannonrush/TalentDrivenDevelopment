@@ -11,6 +11,10 @@
 /log/*.log.*
 /tmp
 
+#solr
+
+/solr/data/*
+
 /config/database.yml
 /config/deploy.rb
 /config/environments/production.rb

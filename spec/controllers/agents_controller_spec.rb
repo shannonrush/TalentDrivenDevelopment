@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersController do
+describe AgentsController do
   let(:other_agent) {FactoryGirl.create(:agent, email: "shannonmrush@gmail.com")}
   describe '#check_authorization' do
     it 'should redirect to sign in if no current user' do
@@ -25,17 +25,6 @@ describe UsersController do
       put :update, {id:agent.id}
       response.should redirect_to(agent_dashboard_path(agent))
     end
-    it 'should redirect talent to talent dashboard path upon update' do
-      sign_in(talent)
-      put :update, {id:talent.id}
-      response.should redirect_to(talent_dashboard_path(talent))
-    end
   end
-  describe '#show' do
-    it 'should redirect to correct path if path is incorrect user type' do
-      get :show, :id => agent.id
-      request.stub!(:path).and_return("/talents/#{agent.id}")
-      response.should redirect_to(agent_path(agent))
-    end
-  end
+
 end

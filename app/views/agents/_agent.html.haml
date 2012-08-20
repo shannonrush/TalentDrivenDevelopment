@@ -1,0 +1,8 @@
+%div.list
+  %div.left
+    =link_to(image_tag(agent.avatar.url(:thumb)),agent_path(agent))
+  %div.right
+    %p.name
+      =link_to "#{agent.first_name} #{agent.last_name}",agent_path(agent)
+    %p.statement
+      =agent.statement

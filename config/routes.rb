@@ -25,12 +25,12 @@ TalentDrivenDevelopment::Application.routes.draw do
   
   # User resources including resources for user types
   resources :users 
-  resources :agents, :controller => 'users' do
+  resources :agents do
     resources :requests, :only => :new
   end
   get 'agents/:user_id/dashboard' => 'dashboards#show', :as => :agent_dashboard
 
-  resources :talents, :controller => 'users'
+  resources :talents
   get 'talents/:user_id/dashboard' => 'dashboards#show', :as => :talent_dashboard
   
   resources :requests 

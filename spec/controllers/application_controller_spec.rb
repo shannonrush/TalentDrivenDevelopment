@@ -1,16 +1,6 @@
 require 'spec_helper'
 
 describe ApplicationController do
-  describe '#other_user_type' do
-    it 'should return Agent if current user is Talent' do
-      sign_in(talent)
-      controller.send(:other_user_type).should equal Agent
-    end
-    it 'should return Talent if current user is Agent' do
-      sign_in(agent)
-      controller.send(:other_user_type).should equal Talent
-    end
-  end
   describe '#edit_path_for_user' do
     it 'should return agent edit path for Agent' do
       controller.send(:edit_path_for_user,agent).should eql "/agents/#{agent.id}/edit"    

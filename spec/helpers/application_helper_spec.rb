@@ -7,7 +7,7 @@ describe ApplicationHelper do
       sign_in(agent)
       helper.dashboard_path_for_user.should match agent_dashboard_path(agent)
     end
-    it 'should return talent dashboard path for talent' do
+    it 'should return talent dashboard path for talent' do          
       sign_in(talent)
       helper.dashboard_path_for_user.should match talent_dashboard_path(talent)
     end

@@ -1,0 +1,25 @@
+%div.avatar
+  = image_tag @agent.avatar.url(:medium)
+-unless @agent.badges.empty?
+  =render 'badges/badge_lists'  
+%h2
+  ="#{@agent.first_name} #{@agent.last_name}"
+%p
+  =mail_to @agent.email
+%p
+  -if show_request?(current_user)
+    =render "agent/#{request_by_availability(@agent)}"
+%p
+  %h3
+    ="#{@agent.first_name}'s Stats"
+  ="Interviews Offered: #{Interview.acceptable.for_agent(@agent).count}"
+  %br
+  ="Offers Made: #{Offer.acceptable.for_agent(@agent).count}"
+%p
+  %h3
+    ="#{@agent.first_name}'s Background"
+  =@agent.background
+%p
+  %h3
+    ="#{@agent.first_name}'s Agent Statement"
+  =@agent.statement

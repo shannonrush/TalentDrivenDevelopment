@@ -1,10 +1,10 @@
-= form_for(@user) do |f|
-  = render 'shared/errors', :object => @user 
+= form_for(@talent) do |f|
+  = render 'shared/errors', :object => @talent 
   %div.form
     =f.label :avatar
     %p
       Show yourself off!
-    = image_tag @user.avatar.url 
+    = image_tag @talent.avatar.url(:medium) 
     =f.file_field :avatar
   %div
     =f.label :first_name
