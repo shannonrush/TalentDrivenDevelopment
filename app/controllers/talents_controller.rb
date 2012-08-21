@@ -2,7 +2,11 @@ class TalentsController < ApplicationController
   before_filter :check_authorization, :only => [:edit, :update]
 
   def index
-    @talents = Talent.search{fulltext params[:search]}.results
+    search = Talent.search do 
+      fulltext params[:search]
+      with :public, true
+    end
+    @talents = search.results
   end
   
   def show

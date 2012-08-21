@@ -22,3 +22,19 @@ div.list {
     margin-right:20px;
   }  
 }
+input[type=text].search {
+    height:40px;
+    width:400px;
+    font-size:1.5em;
+}
+div#search {
+  width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:50px;
+  .search_button {
+    position:relative;
+    top:20px;
+  }
+}
+
