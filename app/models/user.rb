@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   # sunspot
   searchable :auto_index => true, :auto_remove => true do
-    text :background, :statement
+    text :background, :statement, :first_name, :last_name, :email
   end
 
   def full_name
