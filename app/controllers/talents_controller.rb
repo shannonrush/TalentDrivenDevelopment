@@ -8,7 +8,7 @@ class TalentsController < ApplicationController
     end
     @talents = search.results
   end
-  
+
   def show
     @talent = Talent.find(params[:id])
   end
