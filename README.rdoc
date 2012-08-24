@@ -1,0 +1,17 @@
+TalentDrivenDevelopment was created based on the idea that technical recruitment can be reimagined to better serve technical talent.  
+
+This Ruby on Rails application was made for both technical talent and talent agents, where agents have the incentive of a percentage based commission to find opportunities for talent they represent.  Agents can initially represent only one client and only after find appropriate interviews, offers, and placements can they increase that number.  Technical talent can browse and search agent profiles to find someone with a background and personality they believe can best serve their needs. Past performance statistics and earned specialty badges help to inform talent of an agent's reputation. If a talent finds an agent they wish to work with but that agent currently has a full roster the talent can with one click request to be notified upon the agent becoming available.
+
+Agents secure interviews for their clients and offer these through the application.  The talent has the opportunity to mark the interview as inappropriate if it is too far outside of the requirements they have dictated (for example, a PHP interview for someone with no background or interest in PHP).  This is an important part of TDD, to maximize signal and minimize noise for the technical talent in the job search process. To this end, inappropriate interview offers strongly penalize the agent in the behind the scenes point system dictating how many clients an agent may represent.
+
+The talent can choose to accept or reject an offered interview.  The agent is expected to remain a participant throughout the interview process, even to the point of negotiating offers if appropriate.  Offers are made through the application in a similar process to interviews. Talent may mark offers as inappropriate, or accept or reject the offer.  The application allows for comments to facilitate counter offers until the negotiation is complete.  
+
+* Ruby 1.9.3
+* Rails 3.2.3
+* Front end created using Haml and Sass
+* Tested using rspec and factory girl
+* Authentication system using devise 
+* Search using sunspot and Solr
+* Recurring tasks using whenever
+* Image management using paperclip
+
