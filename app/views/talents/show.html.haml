@@ -1,19 +1,20 @@
-%div.avatar
-  = image_tag @talent.avatar.url(:medium)
-%h2
-  ="#{@talent.first_name} #{@talent.last_name}"
-%p
-  =mail_to @talent.email
--if @talent.agent.present?
+%div.profile
+  %div.avatar
+    = image_tag @talent.avatar.url(:medium)
+  %h2
+    ="#{@talent.first_name} #{@talent.last_name}"
+  %p
+    =mail_to @talent.email
+  -if @talent.agent.present?
+    %p
+      %h3
+        Represented By
+      =link_to @talent.agent.full_name,agent_path(@talent.agent)
   %p
     %h3
-      Represented By
-    =link_to @talent.agent.full_name,agent_path(@talent.agent)
-%p
-  %h3
-    ="#{@talent.first_name}'s Background"
-  =@talent.background
-%p
-  %h3
-    ="About #{@talent.first_name}'s Next Best Fit"
-  =@talent.statement
+      ="#{@talent.first_name}'s Background"
+    =@talent.background
+  %p
+    %h3
+      ="About #{@talent.first_name}'s Next Best Fit"
+    =@talent.statement

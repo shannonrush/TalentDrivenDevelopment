@@ -5,6 +5,7 @@ gem 'mysql2'
 gem "paperclip", "~> 3.0"
 
 gem 'haml-rails'
+gem 'sass'
 
 gem 'devise'
 
