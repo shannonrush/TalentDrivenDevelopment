@@ -1,6 +1,9 @@
-=link_to "Edit Profile", edit_agent_path(@user)
-|
-=link_to "View Profile", agent_path(@user)
+%p
+  =link_to "Edit Profile", edit_agent_path(@user)
+  |
+  =link_to "View Profile", agent_path(@user)
+%p
+  =link_to "Find Talent", talents_path
 %div.dashboard
   =render 'badges/badges'
   =render 'agents/talents'
