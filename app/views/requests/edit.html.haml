@@ -1,7 +1,7 @@
 %p
   =link_to @request.talent.full_name, talent_path(@request.talent)
   has requested YOU as their dedicated talent agent!
-  -if @request.message
+  -unless @request.message.blank?
     %p 
       =@request.message
     %p

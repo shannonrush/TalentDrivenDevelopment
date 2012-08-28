@@ -7,8 +7,8 @@
     ="#{@agent.first_name} #{@agent.last_name}"
   %p
     =mail_to @agent.email
-  %p
-    -if show_request?(current_user)
+  -if show_request?(current_user) 
+    %p
       =render "agents/#{request_by_availability(@agent)}"
   %p
     %h3

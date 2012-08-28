@@ -1,6 +1,7 @@
-=link_to "Edit Profile", edit_talent_path(@user)
-|
-=link_to "View Profile", talent_path(@user)
+%p
+  =link_to "Edit Profile", edit_talent_path(@user)
+  |
+  =link_to "View Profile", talent_path(@user)
 %div.dashboard
   =render 'talents/agent'
   =render 'interviews/interviews'

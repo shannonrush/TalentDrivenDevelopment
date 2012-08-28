@@ -29,7 +29,7 @@ describe InterviewsController do
     it 'should redirect to interviews_path with success notice if saved' do
       post :create,{:interview => {talent_id:talent.id,agent_id:agent.id,entity:"Some Co.",description:"A great job!"}} 
       response.should redirect_to interviews_path
-      flash[:notice].should match "Interview interview sent!"
+      flash[:notice].should match "Interview offer sent!"
     end
     it 'should render new if invalid' do
       post :create,{:interview => {agent_id:agent.id,entity:"Some Co.",description:"A great job!"}} 

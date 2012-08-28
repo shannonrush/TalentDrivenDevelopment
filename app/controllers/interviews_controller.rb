@@ -10,7 +10,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(params[:interview])
     if @interview.save
-      redirect_to interviews_path, :notice => "Interview interview sent!"
+      redirect_to interviews_path, :notice => "Interview offer sent!"
     else
       render :action => :new
     end   
